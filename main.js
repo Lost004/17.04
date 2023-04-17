@@ -146,3 +146,31 @@ function resetGame() {
         switchTurn();
     }
 }
+
+
+
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => response.json())
+  .then(users => {
+    const tableBody = document.querySelector('#user-data');
+    
+  
+    users.forEach(user => {
+      const row = tableBody.insertRow();
+      
+      const idCell = row.insertCell();
+      idCell.textContent = user.id;
+      
+      const nameCell = row.insertCell();
+      nameCell.textContent = user.name;
+      
+      const usernameCell = row.insertCell();
+      usernameCell.textContent = user.username;
+      
+      const emailCell = row.insertCell();
+      emailCell.textContent = user.email;
+      
+      const websiteCell = row.insertCell();
+      websiteCell.textContent = user.website;
+    });
+  });
